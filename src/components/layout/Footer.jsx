@@ -23,13 +23,14 @@ export default function Footer() {
   };
 
   return (
-    <div className="w-full bg-slate-50">
-      <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-        <footer className="bg-slate-950 text-slate-300 rounded-[3rem] p-10 md:p-16 relative overflow-hidden">
-        
-        {/* Decorative Gradients */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/20 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3" />
+    <div className="w-full bg-slate-950 text-slate-300 relative overflow-hidden mt-12">
+      
+      {/* Decorative Gradients */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/20 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3" />
+
+      <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
+        <footer className="w-full">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 relative z-10">
           
