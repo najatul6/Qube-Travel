@@ -26,6 +26,8 @@ import SettingsManager from '@/pages/admin/SettingsManager';
 // User Pages
 import UserDashboard from '@/pages/user/UserDashboard';
 import UserBookings from '@/pages/user/UserBookings';
+import UserSavedTrips from '@/pages/user/UserSavedTrips';
+import UserProfile from '@/pages/user/UserProfile';
 
 export default function AppRoutes() {
   return (
@@ -55,8 +57,8 @@ export default function AppRoutes() {
       <Route element={<ProtectedRoute><UserLayout /></ProtectedRoute>}>
         <Route path="/dashboard" element={<UserDashboard />} />
         <Route path="/dashboard/bookings" element={<UserBookings />} />
-        <Route path="/dashboard/saved" element={<UserDashboard />} />
-        <Route path="/dashboard/profile" element={<UserDashboard />} />
+        <Route path="/dashboard/saved" element={<UserSavedTrips />} />
+        <Route path="/dashboard/profile" element={<UserProfile />} />
       </Route>
     </Routes>
   );
