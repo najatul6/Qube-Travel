@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { storage } from '@/lib/storage';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Plus, Pencil, Trash2, Search, Filter } from 'lucide-react';
+import { Plus, Pencil, Trash2, Search, Filter, PackageSearch } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
 
