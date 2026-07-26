@@ -193,7 +193,12 @@ export const storage = {
   login: (email, password) => {
     // Mock authentication
     if (email === 'admin@qubetravel.com' && password === 'password123') {
-      const session = { email, token: nanoid(), expires: Date.now() + 86400000 };
+      const session = { email, role: 'admin', token: nanoid(), expires: Date.now() + 86400000 };
+      localStorage.setItem(KEYS.AUTH, JSON.stringify(session));
+      return session;
+    } else if (password === 'password123') {
+      // Any other email with password123 is a customer
+      const session = { email, role: 'user', token: nanoid(), expires: Date.now() + 86400000 };
       localStorage.setItem(KEYS.AUTH, JSON.stringify(session));
       return session;
     }

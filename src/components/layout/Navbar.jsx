@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { PlaneTakeoff, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { storage } from '@/lib/storage';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 
@@ -9,6 +10,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const session = storage.getSession();
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -72,9 +74,17 @@ export default function Navbar() {
             ))}
           </div>
           
-          <Button asChild className="rounded-full px-8 h-12 bg-slate-900 text-white hover:bg-slate-800 shadow-lg hover:shadow-xl transition-all hidden lg:flex font-bold">
-            <Link to="/auth">Sign In</Link>
-          </Button>
+          {session ? (
+            <Button asChild className="rounded-full px-8 h-12 bg-slate-900 text-white hover:bg-slate-800 shadow-lg hover:shadow-xl transition-all hidden lg:flex font-bold">
+              <Link to={session.role === 'admin' ? '/admin' : '/dashboard'}>
+                {session.role === 'admin' ? 'Admin Portal' : 'My Dashboard'}
+              </Link>
+            </Button>
+          ) : (
+            <Button asChild className="rounded-full px-8 h-12 bg-slate-900 text-white hover:bg-slate-800 shadow-lg hover:shadow-xl transition-all hidden lg:flex font-bold">
+              <Link to="/auth">Sign In</Link>
+            </Button>
+          )}
         </div>
 
         {/* Mobile Nav */}

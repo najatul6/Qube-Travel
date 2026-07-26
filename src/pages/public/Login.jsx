@@ -25,7 +25,12 @@ export default function Login() {
     const session = storage.login(data.email, data.password);
     if (session) {
       toast.success('Logged in successfully');
-      navigate(from, { replace: true });
+      // Decide routing based on role if 'from' is just the default /admin
+      let targetPath = from;
+      if (from === '/admin' && session.role === 'user') {
+        targetPath = '/dashboard';
+      }
+      navigate(targetPath, { replace: true });
     } else {
       toast.error('Invalid email or password');
     }
@@ -77,9 +82,18 @@ export default function Login() {
             </Button>
           </form>
 
-          <div className="mt-6 text-center text-sm text-slate-500">
-            <p>For testing, use:</p>
-            <p className="font-mono mt-1 text-xs">admin@qubetravel.com / password123</p>
+          <div className="mt-6 text-center text-sm text-slate-500 bg-slate-50 p-4 rounded-xl border border-slate-100">
+            <p className="font-bold text-slate-700 mb-2">Demo Credentials</p>
+            <div className="flex flex-col gap-2 text-xs">
+              <div className="flex justify-between items-center bg-white p-2 rounded-lg shadow-sm border border-slate-100">
+                <span className="font-medium text-slate-500">Admin</span>
+                <span className="font-mono text-primary font-bold">admin@qubetravel.com / password123</span>
+              </div>
+              <div className="flex justify-between items-center bg-white p-2 rounded-lg shadow-sm border border-slate-100">
+                <span className="font-medium text-slate-500">Customer</span>
+                <span className="font-mono text-secondary font-bold">user@example.com / password123</span>
+              </div>
+            </div>
           </div>
         </CardContent>
       </Card>

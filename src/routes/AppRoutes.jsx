@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import AppLayout from '@/components/layout/AppLayout';
 import AdminLayout from '@/components/layout/AdminLayout';
+import UserLayout from '@/components/layout/UserLayout';
 import ProtectedRoute from '@/routes/ProtectedRoute';
 
 // Public Pages
@@ -21,6 +22,10 @@ import PackagesManager from '@/pages/admin/PackagesManager';
 import BookingsManager from '@/pages/admin/BookingsManager';
 import InquiriesManager from '@/pages/admin/InquiriesManager';
 import SettingsManager from '@/pages/admin/SettingsManager';
+
+// User Pages
+import UserDashboard from '@/pages/user/UserDashboard';
+import UserBookings from '@/pages/user/UserBookings';
 
 export default function AppRoutes() {
   return (
@@ -45,6 +50,13 @@ export default function AppRoutes() {
         <Route path="/admin/bookings" element={<BookingsManager />} />
         <Route path="/admin/inquiries" element={<InquiriesManager />} />
         <Route path="/admin/settings" element={<SettingsManager />} />
+      </Route>
+
+      <Route element={<ProtectedRoute><UserLayout /></ProtectedRoute>}>
+        <Route path="/dashboard" element={<UserDashboard />} />
+        <Route path="/dashboard/bookings" element={<UserBookings />} />
+        <Route path="/dashboard/saved" element={<UserDashboard />} />
+        <Route path="/dashboard/profile" element={<UserDashboard />} />
       </Route>
     </Routes>
   );
