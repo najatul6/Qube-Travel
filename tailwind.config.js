@@ -17,6 +17,9 @@ module.exports = {
       },
     },
     extend: {
+      maxWidth: {
+        '360': '1440px',
+      },
       fontFamily: {
         sans: ['"Outfit"', 'sans-serif'],
       },

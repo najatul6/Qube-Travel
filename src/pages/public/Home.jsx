@@ -22,7 +22,7 @@ export default function Home() {
         <div className="absolute top-1/4 -left-64 w-96 h-96 bg-primary/20 rounded-full blur-[120px] mix-blend-multiply animate-float" />
         <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-secondary/20 rounded-full blur-[120px] mix-blend-multiply animate-float" style={{ animationDelay: '2s' }} />
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid lg:grid-cols-2 gap-12 lg:gap-8 items-center relative z-10">
+        <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8 w-full grid lg:grid-cols-2 gap-12 lg:gap-8 items-center relative z-10">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -84,7 +84,7 @@ export default function Home() {
       {/* Trust & Features */}
       <section className="py-24 bg-slate-900 text-white relative overflow-hidden my-12">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&q=80')] opacity-10 bg-cover bg-center mix-blend-overlay" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid md:grid-cols-3 gap-12 text-center md:text-left">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="space-y-6 flex flex-col items-center md:items-start">
               <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-primary backdrop-blur-md border border-white/10">
@@ -113,7 +113,7 @@ export default function Home() {
 
       {/* Featured Destinations */}
       <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 text-center md:text-left">
             <div className="max-w-2xl space-y-4">
               <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">Trending <span className="text-primary">Destinations</span></h2>

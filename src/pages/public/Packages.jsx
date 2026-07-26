@@ -53,7 +53,7 @@ export default function Packages() {
         <div className="absolute inset-0 bg-gradient-tropical opacity-20 mix-blend-overlay" />
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/30 rounded-full blur-[80px]" />
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -72,7 +72,7 @@ export default function Packages() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32">
+      <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8 pb-32">
         
         {/* Floating Filters */}
         <motion.div 

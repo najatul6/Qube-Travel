@@ -23,8 +23,9 @@ export default function Footer() {
   };
 
   return (
-    <div className="p-4 md:p-8 bg-slate-50">
-      <footer className="bg-slate-950 text-slate-300 rounded-[3rem] p-10 md:p-16 relative overflow-hidden">
+    <div className="w-full bg-slate-50">
+      <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <footer className="bg-slate-950 text-slate-300 rounded-[3rem] p-10 md:p-16 relative overflow-hidden">
         
         {/* Decorative Gradients */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
@@ -113,7 +114,8 @@ export default function Footer() {
             <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
           </div>
         </div>
-      </footer>
+        </footer>
+      </div>
     </div>
   );
 }

@@ -41,7 +41,7 @@ export default function PackageDetails() {
         </div>
 
         <div className="absolute bottom-0 left-0 w-full p-8 md:p-16">
-          <div className="container max-w-7xl mx-auto">
+          <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
               initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
               className="max-w-4xl"
@@ -81,7 +81,7 @@ export default function PackageDetails() {
       </div>
 
       {/* Content */}
-      <div className="container max-w-7xl mx-auto px-4 md:px-8 mt-16">
+      <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8 mt-16">
         <div className="grid lg:grid-cols-3 gap-12 items-start">
           
           {/* Main Info */}
