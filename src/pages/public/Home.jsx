@@ -17,67 +17,119 @@ export default function Home() {
     <div className="w-full">
       
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center pt-24 pb-32 overflow-hidden">
-        {/* Background Decorative Gradients */}
-        <div className="absolute top-1/4 -left-64 w-96 h-96 bg-primary/20 rounded-full blur-[120px] mix-blend-multiply animate-float" />
-        <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-secondary/20 rounded-full blur-[120px] mix-blend-multiply animate-float" style={{ animationDelay: '2s' }} />
+      <section className="relative min-h-[95vh] flex items-center pt-32 pb-24 overflow-hidden bg-slate-50">
         
-        <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8 w-full grid lg:grid-cols-2 gap-12 lg:gap-8 items-center relative z-10">
+        {/* Background Mesh & Pattern */}
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none" />
+        <div className="absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] mix-blend-multiply animate-float pointer-events-none" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-secondary/15 rounded-full blur-[100px] mix-blend-multiply animate-float pointer-events-none" style={{ animationDelay: '3s' }} />
+        
+        <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8 w-full grid lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
+          
+          {/* Left Text Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-8 flex flex-col justify-center"
+            className="space-y-8 lg:col-span-5 flex flex-col justify-center relative"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 font-semibold text-sm self-start">
+            {/* Floating Badge above text */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5 }}
+              className="absolute -top-12 -left-8 glass-panel px-4 py-2 rounded-2xl hidden md:flex items-center gap-2 shadow-xl animate-float" style={{ animationDelay: '1s' }}
+            >
+              <span className="text-xl">✈️</span>
+              <span className="font-bold text-slate-700 text-sm">Flights Included</span>
+            </motion.div>
+
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white shadow-sm border border-slate-200 text-slate-700 font-bold text-sm self-start">
               <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
               </span>
-              New Summer 2026 Destinations
+              2026 Summer Collection Live
             </div>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+            
+            <h1 className="text-6xl sm:text-7xl lg:text-[5.5rem] font-black tracking-tighter text-slate-900 leading-[1.05]">
               Escape the <br />
-              <span className="text-gradient animate-gradient-x">Ordinary</span>
+              <span className="text-gradient animate-gradient-x relative inline-block">
+                Ordinary
+                <svg className="absolute w-full h-6 -bottom-2 left-0 text-orange-400 opacity-50" viewBox="0 0 100 20" preserveAspectRatio="none">
+                  <path d="M0 15 Q 50 0 100 15" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                </svg>
+              </span>
             </h1>
-            <p className="text-lg sm:text-xl text-slate-600 font-medium max-w-lg leading-relaxed">
+            
+            <p className="text-xl sm:text-2xl text-slate-600 font-medium max-w-lg leading-relaxed">
               Curated luxury travel experiences to the world's most breathtaking destinations. Pack your bags, we handle the rest.
             </p>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4">
-              <Button size="lg" asChild className="rounded-full px-8 h-14 text-lg bg-slate-900 hover:bg-slate-800 text-white shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all w-full sm:w-auto">
-                <Link to="/packages">Explore Destinations</Link>
+            
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-6">
+              <Button size="lg" asChild className="rounded-full px-10 h-16 text-lg font-bold bg-slate-900 hover:bg-primary text-white shadow-xl hover:shadow-primary/30 hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto group">
+                <Link to="/packages">
+                  Start Exploring 
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild className="rounded-full px-8 h-14 text-lg border-2 border-slate-200 hover:border-slate-900 bg-transparent hover:bg-transparent w-full sm:w-auto">
+              <Button size="lg" variant="outline" asChild className="rounded-full px-10 h-16 text-lg font-bold border-2 border-slate-300 hover:border-slate-900 text-slate-700 hover:text-slate-900 bg-white hover:bg-slate-50 shadow-sm w-full sm:w-auto">
                 <Link to="/contact">Talk to an Expert</Link>
               </Button>
             </div>
           </motion.div>
 
-          {/* Hero Imagery - Grid Style (Fixing Masonry overlapping issues) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative hidden lg:grid grid-cols-2 gap-4 h-[600px] items-center"
-          >
-            <div className="h-[400px] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white transform translate-y-12 hover:-translate-y-2 transition-all duration-500">
-              <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80" alt="Travel 1" className="w-full h-full object-cover" />
-            </div>
-            <div className="h-[480px] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white transform -translate-y-12 hover:-translate-y-16 transition-all duration-500 relative">
-              <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80" alt="Travel 2" className="w-full h-full object-cover" />
-              
-              {/* Floating badge */}
-              <div className="absolute bottom-8 -left-12 glass-panel p-4 rounded-3xl flex items-center gap-4 z-30 shadow-xl animate-float whitespace-nowrap">
-                <div className="bg-gradient-tropical p-3 rounded-2xl text-white shrink-0">
-                  <Star className="h-6 w-6 fill-current" />
-                </div>
-                <div>
-                  <p className="font-bold text-slate-900 text-lg">4.9/5 Rating</p>
-                  <p className="text-sm text-slate-500 font-medium">10k+ Travelers</p>
-                </div>
+          {/* Right Imagery - Enhanced Overlapping Layout */}
+          <div className="lg:col-span-7 relative hidden lg:block h-[700px]">
+            
+            {/* Main Center Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 0.8, delay: 0.1, type: "spring" }}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[550px] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white z-20 group"
+            >
+              <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80" alt="Travel Main" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            </motion.div>
+
+            {/* Top Right Smaller Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 50, y: -50 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, type: "spring" }}
+              className="absolute top-4 right-4 w-[280px] h-[320px] rounded-[2.5rem] overflow-hidden shadow-xl border-8 border-white z-10 rotate-6 group"
+            >
+              <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80" alt="Travel Secondary" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </motion.div>
+
+            {/* Bottom Left Smaller Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -50, y: 50 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4, type: "spring" }}
+              className="absolute bottom-12 left-4 w-[260px] h-[280px] rounded-[2.5rem] overflow-hidden shadow-xl border-8 border-white z-30 -rotate-3 group"
+            >
+              <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80" alt="Travel Tertiary" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </motion.div>
+
+            {/* Floating Review Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="absolute bottom-32 -left-12 glass-panel p-5 rounded-3xl flex items-center gap-4 z-40 shadow-2xl animate-float whitespace-nowrap border-white/60"
+            >
+              <div className="bg-slate-900 p-3 rounded-2xl text-amber-400 shrink-0">
+                <Star className="h-7 w-7 fill-current" />
               </div>
-            </div>
-          </motion.div>
+              <div>
+                <div className="flex items-center gap-1 text-amber-500 mb-1">
+                  <Star className="h-4 w-4 fill-current" /><Star className="h-4 w-4 fill-current" /><Star className="h-4 w-4 fill-current" /><Star className="h-4 w-4 fill-current" /><Star className="h-4 w-4 fill-current" />
+                </div>
+                <p className="font-extrabold text-slate-900 text-lg leading-tight">4.9/5 Rating</p>
+                <p className="text-sm text-slate-500 font-medium">10,000+ Happy Travelers</p>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
