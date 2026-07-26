@@ -17,7 +17,7 @@ export default function Packages() {
     setPackages(storage.getAll(storage.KEYS.PACKAGES));
   }, []);
 
-  const regions = ['all', ...new Set(packages.map(p => p.region))];
+  const regions = ['all', ...new Set(packages.map(p => p.region).filter(Boolean))];
 
   const filteredPackages = useMemo(() => {
     let result = packages;
@@ -180,7 +180,7 @@ export default function Packages() {
                       <div className="flex items-center justify-between mt-auto">
                         <div>
                           <p className="text-xs text-slate-400 font-bold uppercase tracking-widest mb-1">From</p>
-                          <p className="text-3xl font-extrabold text-slate-900">${pkg.price.toLocaleString()}</p>
+                          <p className="text-3xl font-extrabold text-slate-900">${pkg.price?.toLocaleString()}</p>
                         </div>
                         <div className="h-12 w-12 rounded-full bg-slate-50 group-hover:bg-primary flex items-center justify-center transition-colors">
                           <svg className="w-5 h-5 text-slate-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
